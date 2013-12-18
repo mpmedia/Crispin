@@ -1,0 +1,49 @@
+{
+  "name": "crispin",
+  "version": "0.0.1",
+  "description": "A foundation structure for creating large websites in Node.js",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "dependencies": {
+    "async": "~0.2.9",
+    "backbone": "~1.1.0",
+    "backbone-redis": "~0.0.4",
+    "backbone-request": "~0.0.1",
+    "connect-multiparty": "~1.0.1",
+    "connect-redis": "~1.4.5",
+    "express": "~3.4.2",
+    "handlebars": "~1.1.2",
+    "lodash": "~2.4.1",
+    "mysql2": "~0.10.5",
+    "redis": "~0.9.1",
+    "request": "~2.30.0",
+    "socket.io": "~0.9.16",
+    "when": "~2.7.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-express": "~1.2.1",
+    "grunt-requirejs": "~0.4.0",
+    "grunt-contrib-csslint": "~0.2.0",
+    "grunt-contrib-less": "~0.8.3",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-qunit": "~0.3.0",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-handlebars": "~0.6.0",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "lodash-cli": "~2.4.1",
+    "grunt-lodash": "~0.3.0"
+  },
+  "engines": {
+    "node": ">=0.10.20"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/ChiperSoft/Crispin.git"
+  }
+}

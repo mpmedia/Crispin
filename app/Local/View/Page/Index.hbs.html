@@ -1,0 +1,13 @@
+{{require "Layout/Foundation"}}
+{{#extend "Layout/Foundation"}}
+	{{#append "head"}}
+		<link rel="stylesheet" href="/assets/css/pages/index.css" />
+	{{/append}}
+
+	{{#replace "body"}}
+		<h2>Welcome Home</h2>
+
+		<div data-component="example" data-hasview>This should get replaced</div>
+	{{/replace}}
+
+{{/extend}}

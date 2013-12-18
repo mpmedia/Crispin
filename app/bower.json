@@ -1,0 +1,23 @@
+{
+  "name": "crispin",
+  "version": "0.0.1",
+  "dependencies": {
+    "requirejs": "~2.1.9",
+    "mustache": "~0.7.2",
+    "backbone-amd": "~1.1.0",
+    "async": "~0.2.5",
+    "when": "~2.7.0",
+    "bootstrap": "~3.0.3",
+    "jquery": "1.*",
+    "qunit": "~1.12.0",
+    "qunit-data-providers": "http://github.com/adamsea/qunit-data-providers.git",
+    "qunit-promises": "~0.0.15",
+    "font-awesome": "~4.0.1",
+    "handlebars": "~1.1.2",
+    "moment": "~2.4.0",
+    "modernizr": "~2.7.1",
+    "respond": "~1.4.1",
+    "html5shiv": "~3.7.0"
+  },
+  "devDependencies": {}
+}

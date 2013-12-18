@@ -1,0 +1,1 @@
+See the readme in the project root. This file just here to get npm to quit bitching.

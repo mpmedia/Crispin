@@ -1,0 +1,32 @@
+var express = require('express');
+var connectRedis = require('connect-redis')(express);
+
+var Config = require('Local/Config');
+
+var app = express();
+
+// Cookie processing
+app.use(express.cookieParser());
+
+// Post/Put Data handling
+app.use(express.json({
+	limit: Config.maxFormSize
+}));
+
+app.use(express.urlencoded({
+	limit: Config.maxFormSize
+}));
+
+// Sessions
+app.use(express.session({
+	store: new connectRedis({
+		host: Config.redis.host,
+		port: Config.redis.port,
+		db:   Config.redis.database.sessions,
+		pass: Config.redis.password
+	}),
+	secret: Config.sessions.secret,
+	key: Config.sessions.cookieKey
+}));
+
+module.exports = app;

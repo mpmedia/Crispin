@@ -1,0 +1,10 @@
+*.hbs.js
+app/www/assets/rjs/*
+app/www/assets/css/*
+app/www/assets/css.min/*
+app/www/assets/vendor/*
+*.sublime-*
+app/node_modules/*
+vagrant/logs/*
+.vagrant
+/npm-debug.log
