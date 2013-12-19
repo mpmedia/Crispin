@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('test', [
+		'nodeunit',
 		'express:qunit',
 		'qunit'
 	]);
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
 		'cssmin',
 		'handlebars',
 		'lodash',
-		// 'test',
+		'test',
 		'requirejs'
 	]);
 
