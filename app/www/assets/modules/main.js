@@ -6,6 +6,5 @@ require([
 	'lodash',
 	'backbone',
 	'handlebars',
-	'function.bind',
 	'js/require-components'
 ]);

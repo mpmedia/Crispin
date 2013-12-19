@@ -18,8 +18,7 @@ require.config({
 		'bootstrap'                     : 'vendor/bootstrap',
 		'async'                         : 'vendor/async/lib/async',
 		'when'                          : 'vendor/when/when',
-		'handlebars'                    : 'vendor/handlebars/handlebars',
-		'function.bind'                 : 'js/function.bind'
+		'handlebars'                    : 'vendor/handlebars/handlebars'
 
 	},
 	map: {
@@ -40,9 +39,6 @@ require.config({
 		},
 		handlebars: {
 			exports: 'Handlebars'
-		},
-		'function.bind': {
-			exports: 'Function.prototype.bind'
 		}
 	}
 });
