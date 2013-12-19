@@ -38,7 +38,9 @@
     "grunt-contrib-clean": "~0.5.0",
     "lodash-cli": "~2.4.1",
     "grunt-lodash": "~0.3.0",
-    "grunt-express-server": "~0.4.10"
+    "grunt-express-server": "~0.4.10",
+    "nodeunit": "~0.8.2",
+    "grunt-contrib-nodeunit": "~0.2.2"
   },
   "engines": {
     "node": ">=0.10.20"
