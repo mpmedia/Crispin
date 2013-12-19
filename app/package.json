@@ -22,11 +22,11 @@
     "redis": "~0.9.1",
     "request": "~2.30.0",
     "socket.io": "~0.9.16",
-    "when": "~2.7.0"
+    "when": "~2.7.0",
+    "glob": "~3.2.7"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-express": "~1.2.1",
     "grunt-requirejs": "~0.4.0",
     "grunt-contrib-csslint": "~0.2.0",
     "grunt-contrib-less": "~0.8.3",
@@ -37,13 +37,14 @@
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-clean": "~0.5.0",
     "lodash-cli": "~2.4.1",
-    "grunt-lodash": "~0.3.0"
+    "grunt-lodash": "~0.3.0",
+    "grunt-express-server": "~0.4.10"
   },
   "engines": {
     "node": ">=0.10.20"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "http://github.com/ChiperSoft/Crispin.git"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ChiperSoft/Crispin.git"
   }
 }

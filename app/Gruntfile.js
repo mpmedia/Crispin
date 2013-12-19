@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('launch', [
 		'express:server',
-		'express-keepalive'
+		'watch'
 	]);
 
 	grunt.registerTask('lint', [

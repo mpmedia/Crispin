@@ -19,18 +19,20 @@ module.exports = function (grunt) {
 			options: {
 				port: 8000,
 				host: 'localhost',
-				server: './development'
+				script: './development.js',
+				background: true
 			}
 		},
 		qunit: {
 			options: {
 				port: qunitPort,
 				host: 'localhost',
-				server: './qunit-tester'
+				script: './qunit-tester.js',
+				background: true
 			}
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-express');
+	grunt.loadNpmTasks('grunt-express-server');
 	grunt.loadNpmTasks('grunt-contrib-qunit');
 };

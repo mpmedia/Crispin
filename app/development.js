@@ -16,3 +16,6 @@ App.use(express.errorHandler({
 
 
 module.exports = App;
+
+App.listen(process.env.PORT || 8000);
+console.log("Now listening on port " + process.env.PORT || 8000);

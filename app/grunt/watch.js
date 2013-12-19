@@ -10,6 +10,14 @@ module.exports = function (grunt) {
 		handlebars: {
 			files: '**/*.hbs.html',
 			tasks: ['handlebars']
+		},
+
+		express: {
+			files:  [ 'Local/**/*.js' ],
+			tasks:  [ 'express:server' ],
+			options: {
+				spawn: false // Without this option specified express won't be reloaded
+			}
 		}
 	});
 
