@@ -24,6 +24,7 @@
     "socket.io": "~0.9.16",
     "when": "~2.7.0",
     "glob": "~3.2.7",
+    "pinvault-observer": "~0.1.0",
     "passport": "~0.1.17",
     "passport-local": "~0.1.6",
     "connect-flash": "~0.1.1"

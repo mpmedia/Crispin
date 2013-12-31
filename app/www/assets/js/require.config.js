@@ -18,7 +18,11 @@ require.config({
 		'bootstrap'                     : 'vendor/bootstrap',
 		'async'                         : 'vendor/async/lib/async',
 		'when'                          : 'vendor/when/when',
-		'handlebars'                    : 'vendor/handlebars/handlebars'
+		'handlebars'                    : 'vendor/handlebars/handlebars',
+		'pinvault-observer'             : 'vendor/pinvault-observer/pinvault-observer',
+		'pinvault'                      : 'vendor/pinvault/pinvault',
+
+		'events'                        : 'js/events'
 
 	},
 	map: {
