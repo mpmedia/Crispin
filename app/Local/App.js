@@ -1,5 +1,6 @@
 var express = require('express');
 var connectRedis = require('connect-redis')(express);
+var flash = require('connect-flash');
 
 var Config = require('Local/Config');
 
@@ -28,5 +29,7 @@ app.use(express.session({
 	secret: Config.sessions.secret,
 	key: Config.sessions.cookieKey
 }));
+
+app.use(flash());
 
 module.exports = app;

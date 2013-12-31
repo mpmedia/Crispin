@@ -4,6 +4,7 @@ var App = require('Local/App');
 
 App.use(express.logger('dev'));
 
+require('Local/App/Authentication')(App);
 require('Local/App/Assets')(App);
 require('Local/App/Index')(App);
 require('Local/App/Qunit')(App);

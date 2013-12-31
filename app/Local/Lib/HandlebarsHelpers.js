@@ -61,6 +61,16 @@
 					throw new Error('Missing layout partial: "' + partial + '"');
 				}
 
+				Object.keys(options.hash).forEach(function (key) {
+
+					var value = options.hash[key];
+					if (String(value)[0] === '{') {
+						value = JSON.parse(value);
+					}
+
+					context[key] = value;
+				});
+
 				// Parse blocks and discard output
 				options.fn(context);
 
