@@ -3,7 +3,7 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 
-var overridePath = path.resolve(__dirname + '/../config.js');
+var overridePath = path.resolve(__dirname + '/../config.json');
 
 
 var base = {
