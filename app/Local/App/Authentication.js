@@ -29,10 +29,9 @@ module.exports = function (App) {
 
 
 	App.get('/login', function (req, res) {
-		var page = require('Local/View')('Page/Login');
-		res.send(page({
+		res.render('pages/login', {
 			messages: req.flash('error')
-		}));
+		});
 	});
 
 	App.post('/login', function (req, res) {

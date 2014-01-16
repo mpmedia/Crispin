@@ -1,12 +1,12 @@
-{{require "Layout/Foundation"}}
-{{require "Layout/ModalDialog"}}
-{{#extend "Layout/Foundation"}}
+{{require "layouts/foundation"}}
+{{require "layouts/modalDialog"}}
+{{#extend "layouts/foundation"}}
 
-	{{#replace "body"}}
-
+	{{#content "body"}}
 		<form action="/login" method="post" role="form" data-component="login">
-		{{#extend "Layout/ModalDialog" modal='{"id":"loginForm", "show": true, "titleText":"Visitor Login"}'}}
-			{{#replace "modalBody"}}
+		{{#inject modal='{"id":"loginForm", "show": true, "titleText":"Visitor Login"}'}}
+		{{#extend "layouts/modalDialog"}}
+			{{#content "modalBody"}}
 				{{#if messages}}<ul>{{#messages}}<li>{{this}}</li>{{/messages}}</ul>{{/if}}
 				<div class="form-horizontal">
 					<div class="form-group">
@@ -23,13 +23,13 @@
 						</div>
 					</div></div>
 				</div>
-			{{/replace}}
-			{{#replace "modalFooter"}}
+			{{/content}}
+			{{#content "modalFooter"}}
 				<input type="submit" value="Sign In" class="btn btn-primary">
-			{{/replace}}
+			{{/content}}
 		{{/extend}}
+		{{/inject}}
 		</form>
-
-	{{/replace}}
+	{{/content}}
 
 {{/extend}}

@@ -1,5 +1,5 @@
 /* globals alert */
-define(['backbone', './template.hbs'], function (Backbone, tmpl) {
+define(['backbone', './frontend.hbs'], function (Backbone, tmpl) {
 
 	var ExampleComponent = Backbone.View.extend({
 		events: {

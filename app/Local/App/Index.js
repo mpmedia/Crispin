@@ -2,10 +2,9 @@
 module.exports = function (app) {
 
 	app.get('/', function (req, res) {
-		var page = require('Local/View')('Page/Index');
-		res.send(page({
+		res.render('pages/index', {
 			title: 'Layout Test'
-		}));
+		});
 	});
 
 };

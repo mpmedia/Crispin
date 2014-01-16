@@ -26,11 +26,27 @@ module.exports = function (grunt) {
 			},
 			files: [{
 				expand: true,
-				cwd: 'Local/View/',
+				cwd: 'views/',
 				src: [
 					'**/*.hbs.html',
 				],
-				dest: 'Local/View/',
+				dest: 'views/',
+				ext: '.hbs.js'
+			}]
+		},
+
+		backendComponents: {
+			options: {
+				namespace: false,
+				commonjs: true
+			},
+			files: [{
+				expand: true,
+				cwd: 'Local/Components/',
+				src: [
+					'**/*.hbs.html',
+				],
+				dest: 'Local/Components/',
 				ext: '.hbs.js'
 			}]
 		}

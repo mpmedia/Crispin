@@ -1,6 +1,5 @@
 
 var manyGlob = require('Local/Lib/ManyGlob');
-var page = require('Local/View')('Page/Qunit');
 
 module.exports = function (app) {
 
@@ -10,11 +9,11 @@ module.exports = function (app) {
 
 		manyGlob(patterns, {cwd: __dirname + '/../../www/'}, function (files) {
 
-			res.send(page({
+			res.render('pages/qunit', {
 				title: 'QUnit Test Runner',
 				files: files,
 				tests: JSON.stringify(files.map(function (d) { return '/'+d; }))
-			}));
+			});
 
 		});
 

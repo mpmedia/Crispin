@@ -1,33 +1,67 @@
 
-var Handlebars = require('handlebars');
-var _ = require('lodash');
+var pathResolve = require('path').resolve,
+	fsExists = require('fs').existsSync,
+	Handlebars = require('handlebars'),
+	_ = require('lodash');
 
-require('Local/Lib/HandlebarsHelpers')(Handlebars);
+/** Handlebars Extensions *****************************************************************************************************************/
 
-var templates = {};
+require('helper-hoard').load(Handlebars);
 
-function loadTemplate (path) {
-	var fullpath = 'Local/View/'+path+'.hbs.html';
-	var actualpath = __dirname+'/View/'+path+'.hbs.js';
+var root = __dirname + '/../views/';
+var templateCache = {};
 
-	//if we've already loaded that template, just grab it.
-	if (templates[fullpath]) {
-		return templates[fullpath];
+function loadTemplate (src) {
+	var fullpath = 'views/'+src+'.hbs.html';
+	var actualpath = pathResolve(root+src+'.hbs.js');
+
+	if (templateCache[fullpath]) {
+		return templateCache[fullpath];
 	} else {
-		var newTemplates = require(actualpath)(Handlebars);
+		var templates = require(actualpath)(Handlebars);
 
-		if (newTemplates[fullpath] !== undefined) {
-			_.assign(templates, newTemplates);
-			return templates[fullpath] = newTemplates[fullpath];
+		if (templates[fullpath] !== undefined) {
+			_.assign(templateCache, templates);
+			return templateCache[fullpath] = templates[fullpath];
 		} else {
-			throw 'Local/View: Template for '+fullpath+' was not found in the file at '+actualpath;
+			throw new Error('Template for '+fullpath+' was not found in the file at '+actualpath);
 		}
 	}
 }
 
-module.exports = loadTemplate;
-
-//helper function to preload a partial for use elsewhere in the file
 Handlebars.registerHelper('require', function (path) {
 	Handlebars.registerPartial(path, loadTemplate(path));
 });
+
+Handlebars.registerHelper('component', function (path, options) {
+	var Component = require('Local/Components/'+path);
+
+	var content = (new Component(options.hash)).render(this);
+
+	return new Handlebars.SafeString(content);
+});
+
+/** View Class *****************************************************************************************************************/
+
+var View = function (name, options) {
+	options = options || {};
+	this.name = name;
+	this.root = options.root;
+	this.path = name;
+};
+
+View.prototype.lookup = function(path){
+	path = pathResolve(this.root, path);
+
+	if (fsExists(path+'.hbs.js')) {
+		return path;
+	} else {
+		console.log(path);
+	}
+};
+
+View.prototype.render = function(options, fn){
+	fn(false, loadTemplate(this.path)(options));
+};
+
+module.exports = View;

@@ -6,6 +6,9 @@ var Config = require('Local/Config');
 
 var app = express();
 
+app.set('view', require('Local/View'));
+app.set('views', __dirname + '/../views/');
+
 // Cookie processing
 app.use(express.cookieParser());
 
