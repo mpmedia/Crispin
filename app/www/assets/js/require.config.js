@@ -15,7 +15,7 @@ require.config({
 		'backbone'                      : 'vendor/backbone-amd/backbone',
 		'modernizr'                     : 'vendor/modernizr/modernizr',
 		'moment'                        : 'vendor/moment/moment',
-		'bootstrap'                     : 'vendor/bootstrap',
+		'bootstrap'                     : 'vendor/bootstrap/dist/js/bootstrap',
 		'async'                         : 'vendor/async/lib/async',
 		'when'                          : 'vendor/when/when',
 		'handlebars'                    : 'vendor/handlebars/handlebars',
@@ -43,6 +43,9 @@ require.config({
 		},
 		handlebars: {
 			exports: 'Handlebars'
+		},
+		bootstrap: {
+			deps: ['jquery']
 		}
 	}
 });

@@ -6,5 +6,6 @@ require([
 	'lodash',
 	'backbone',
 	'handlebars',
+	'bootstrap',
 	'js/require-components'
 ]);

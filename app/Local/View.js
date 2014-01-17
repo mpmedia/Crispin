@@ -1,6 +1,5 @@
 
 var pathResolve = require('path').resolve,
-	fsExists = require('fs').existsSync,
 	Handlebars = require('handlebars'),
 	_ = require('lodash');
 
@@ -12,8 +11,9 @@ var root = __dirname + '/../views/';
 var templateCache = {};
 
 function loadTemplate (src) {
-	var fullpath = 'views/'+src+'.hbs.html';
-	var actualpath = pathResolve(root+src+'.hbs.js');
+	var isLocal = src.substr(0,5) === 'Local';
+	var fullpath = isLocal ? src+'.hbs.html' : 'views/'+src+'.hbs.html';
+	var actualpath = isLocal ? pathResolve(root+'../'+src+'.hbs.js') : pathResolve(root+src+'.hbs.js');
 
 	if (templateCache[fullpath]) {
 		return templateCache[fullpath];
@@ -36,7 +36,24 @@ Handlebars.registerHelper('require', function (path) {
 Handlebars.registerHelper('component', function (path, options) {
 	var Component = require('Local/Components/'+path);
 
-	var content = (new Component(options.hash)).render(this);
+	var context = Object.create(this || {});
+
+	var opts = {}, input;
+	if (options.fn) {
+		input = options.fn(this);
+		try {
+			opts = JSON.parse(input);
+		} catch (e) {
+			console.log(e, input);
+			opts = {};
+		}
+	}
+
+	if (options.hash) {
+		_.assign(opts, options.hash);
+	}
+
+	var content = (new Component(opts)).render(context);
 
 	return new Handlebars.SafeString(content);
 });
@@ -48,16 +65,6 @@ var View = function (name, options) {
 	this.name = name;
 	this.root = options.root;
 	this.path = name;
-};
-
-View.prototype.lookup = function(path){
-	path = pathResolve(this.root, path);
-
-	if (fsExists(path+'.hbs.js')) {
-		return path;
-	} else {
-		console.log(path);
-	}
 };
 
 View.prototype.render = function(options, fn){

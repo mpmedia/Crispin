@@ -19,5 +19,22 @@ module.exports = function (app) {
 
 	});
 
+	app.get(/^\/Components\/(.*)$/, function (req, res) {
+
+		var component = req.params[0];
+
+		if (!component) {
+			res.send(403, 'You must specify a component name');
+			return;
+		}
+
+		var demoPath = 'Local/Components/'+component+'/demo';
+
+		res.render(demoPath, {
+			title: component
+		});
+
+	});
+
 };
 
