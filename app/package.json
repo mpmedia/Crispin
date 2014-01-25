@@ -29,7 +29,8 @@
     "passport-local": "~0.1.6",
     "connect-flash": "~0.1.1",
     "backbone-class": "0.0.1",
-    "helper-hoard": "~0.1.0"
+    "helper-hoard": "~0.1.0",
+    "bytes": "~0.2.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
