@@ -8,6 +8,8 @@ var app = express();
 
 app.set('view', require('Local/View'));
 app.set('views', __dirname + '/../views/');
+//handle favicons very first thing, as they don't need any other processing
+App.use(express.favicon(Config.paths.assets + '/favicon.ico'));
 
 // Cookie processing
 app.use(express.cookieParser());
