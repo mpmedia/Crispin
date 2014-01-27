@@ -2,6 +2,7 @@ var express = require('express');
 
 var App = require('Local/App');
 
+App.set('port', process.env.PORT || 8000);
 
 // custom dev logger that shows worker id.
 require('Local/App/DevLog')(App);
@@ -20,5 +21,6 @@ App.use(express.errorHandler({
 
 module.exports = App;
 
-App.listen(process.env.PORT || 8000);
-console.log("Now listening on port " + (process.env.PORT || 8000));
+App.listen(App.get('port'), function() {
+	console.log('Express server listening on port ' + App.get('port'));
+});
