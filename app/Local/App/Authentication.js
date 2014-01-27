@@ -1,7 +1,7 @@
 
 var passport = require('passport');
 
-module.exports = function (App) {
+module.exports = exports = function (App) {
 
 	passport.use(require('Local/App/Authentication/LocalUser')());
 
@@ -18,6 +18,7 @@ module.exports = function (App) {
 		// });
 	});
 
+	//add passport middleware
 	App.use(passport.initialize());
 	App.use(passport.session());
 	App.use(function (req, res, next) {
@@ -27,26 +28,28 @@ module.exports = function (App) {
 		next();
 	});
 
+	//setup endpoints
+	App.get('/login', exports.getLogin);
+	App.post('/login', exports.postLogin);
+	App.all('/logout', exports.allLogout);
 
-	App.get('/login', function (req, res) {
-		res.render('pages/login', {
-			messages: req.flash('error')
-		});
+};
+
+exports.getLogin = function (req, res) {
+	res.render('pages/login', {
+		messages: req.flash('error')
 	});
+};
 
-	App.post('/login', function (req, res) {
+exports.postLogin = function (req, res) {
+	passport.authenticate('local', {
+		successRedirect: req.session && req.session.goingTo || '/profile',
+		failureRedirect: "/login",
+		failureFlash: true
+	})(req, res);
+};
 
-	    passport.authenticate('local', {
-	        successRedirect: req.session && req.session.goingTo || '/profile',
-	        failureRedirect: "/login",
-	        failureFlash: true
-	    })(req, res);
-
-	});
-
-	App.get('/logout', function (req, res) {
-	    req.logout();
-	    res.redirect('/login');
-	});
-
+exports.allLogout = function (req, res) {
+	req.logout();
+	res.redirect('/login');
 };
