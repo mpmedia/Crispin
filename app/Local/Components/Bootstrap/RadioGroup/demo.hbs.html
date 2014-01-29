@@ -1,0 +1,13 @@
+{{require "layouts/componentDemo"}}
+{{#extend "layouts/componentDemo"}}{{#content "body"}}
+
+
+{{#component 'Bootstrap/RadioGroup' name="toggle" default="0"}}
+	{{#option "options" contextual=true}}
+		{{option "0" "No"}}
+		{{option "1" "Yes"}}
+	{{/option}}
+{{/component}}
+
+
+{{/content}}{{/extend}}

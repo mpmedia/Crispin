@@ -1,0 +1,3 @@
+<div class="btn-group" data-toggle="buttons">
+	{{#each options}}<label class="btn btn-primary {{#compare @key ../default}}active{{/compare}}"><input type="radio" name="{{../name}}" value="{{@key}}" {{#compare @key ../default}}checked{{/compare}}> {{this}}</label>{{/each}}
+</div>

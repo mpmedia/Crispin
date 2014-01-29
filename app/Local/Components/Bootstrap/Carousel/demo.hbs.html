@@ -1,27 +1,21 @@
 {{require "layouts/componentDemo"}}
-{{#extend "layouts/componentDemo"}}
-	{{#content "body"}}
-		{{#component 'Bootstrap/Carousel'}}
-			{
-				"items": [
-					{
-						"image": "http://placekitten.com/1390/535",
-						"alt": "Placekitten",
-						"caption": "Kittens!",
-						"bgcolor": "#060501"
-					},
-					{
-						"image": "http://placehold.it/1395x535",
-						"alt": "Placeholdit",
-						"bgcolor": "#ccc"
-					},
-					{
-						"image": "http://fillmurray.com/1395/535",
-						"caption": "No one will believe you",
-						"bgcolor": "#432702"
-					}
-				]
-			}
-		{{/component}}
-	{{/content}}
-{{/extend}}
+{{#extend "layouts/componentDemo"}}{{#content "body"}}
+
+
+{{#component 'Bootstrap/Carousel'}}
+	{{#option "[items]"}}
+		<img src="http://placekitten.com/1390/535" alt="Placekitten">
+	{{/option}}
+	{{#option "[items]" contextual=true}}
+		{{option "image" "http://placehold.it/1395x535"}}
+		{{option "bgcolor" "#ccc"}}
+	{{/option}}
+	{{#option "[items]" contextual=true}}
+		{{option "image" "http://fillmurray.com/1395/535"}}
+		{{option "caption" "No one will believe you"}}
+		{{option "bgcolor" "#432702"}}
+	{{/option}}
+{{/component}}
+
+
+{{/content}}{{/extend}}

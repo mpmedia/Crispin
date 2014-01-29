@@ -1,15 +1,14 @@
 <div id="{{id}}" class="carousel slide" data-ride="carousel" data-component="Bootstrap/Carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		{{#each items}}<li data-target="#{{id}}" data-slide-to="{{@index}}" {{#if @first}}class="active"{{/if}}></li>{{/each}}
+		{{#each items}}<li data-target="#{{../id}}" data-slide-to="{{@index}}" {{#if @first}}class="active"{{/if}}></li>{{/each}}
 	</ol>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner">
 		{{#each items}}
 		<div class="item{{#if @first}} active{{/if}}"{{#if bgcolor}} style="background-color:{{bgcolor}}"{{/if}}>
-			<img src="{{image}}" alt="{{altText}}">
-			{{#if caption}}<div class="carousel-caption">{{caption}}</div>{{/if}}
+			{{#compare this "typeof" "string"}}{{{this}}}{{else}}<img src="{{image}}" alt="{{altText}}">{{#if caption}}<div class="carousel-caption">{{caption}}</div>{{/if}}{{/compare}}
 		</div>
 		{{/each}}
 	</div>
